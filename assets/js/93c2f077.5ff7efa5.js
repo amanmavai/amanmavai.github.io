@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkamanmavai_blog=self.webpackChunkamanmavai_blog||[]).push([[40],{6300:a=>{a.exports=JSON.parse('{"label":"authorization","permalink":"/tags/authorization","allTagsPath":"/tags","count":1}')}}]);

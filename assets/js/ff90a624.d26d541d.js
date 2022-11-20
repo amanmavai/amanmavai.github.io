@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkamanmavai_blog=self.webpackChunkamanmavai_blog||[]).push([[22],{9191:a=>{a.exports=JSON.parse('{"label":"devops","permalink":"/tags/devops","allTagsPath":"/tags","count":1}')}}]);
