@@ -2,12 +2,21 @@
 // Header.astro
 import {Fragment} from "react";
 import HeaderLink from "./HeaderLink.astro";
+import {Image} from "astro:assets";
 ---
 
 <header class="flex justify-between items-center px-4 py-1 bg-white shadow-sm">
   <div class="flex items-center">
     <!-- Avatar Image -->
-    <img src="/img/avatar_aman.png" alt="Avatar" class="rounded-full border border-gray-200 shadow-sm h-16 w-16" />
+    <a href="/">
+      <Image
+        src="/img/avatar_aman.png"
+        alt="Avatar"
+        class="rounded-full border border-gray-200 shadow-sm"
+        height={64}
+        width={64}
+      />
+    </a>
   </div>
   <nav class="flex">
     <!-- Navigation Links -->
