@@ -8,12 +8,11 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, '');
-const activeClass = isActive ? 'font-bold' : '';
+const activeClass = isActive ? 'font-semibold' : '';
 ---
 
-<a href={href} class={twMerge("group relative inline-block px-3 py-2 text-black no-underline font-medium transition duration-300 ease-in-out", className, activeClass)} {...props}>
+<a href={href} class={twMerge("text-gray-700 hover:text-blue-500 mx-3", className, activeClass)} {...props}>
 	<slot />
-	<span class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transform transition-transform duration-300 ease-in-out"></span>
 </a>
 
 
