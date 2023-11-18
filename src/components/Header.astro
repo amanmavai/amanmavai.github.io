@@ -1,12 +1,12 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
+import { Image } from "astro:assets";
 ---
 
 <header>
-  <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="internal-links">
+  <nav class="flex items-center justify-between">
+    <a href="/" class="py-2"><Image src="/img/avatar_aman.png" alt="avatar" width={60} height={60} class="rounded-full"/></a>
+    <div class="flex gap-8">
       <HeaderLink href="/">About</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
     </div>
@@ -28,13 +28,7 @@ import { SITE_TITLE } from "../consts";
   h2 a.active {
     text-decoration: none;
   }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
   nav a {
-    padding: 1em 0.5em;
     color: var(--black);
     border-bottom: 4px solid transparent;
     text-decoration: none;
@@ -42,14 +36,5 @@ import { SITE_TITLE } from "../consts";
   nav a.active {
     text-decoration: none;
     border-bottom-color: var(--accent);
-  }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
-    }
   }
 </style>
