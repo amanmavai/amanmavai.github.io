@@ -3,5 +3,8 @@
   "editor.formatOnSave": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   }
 }
