@@ -1,17 +1,17 @@
 ---
 // Header.astro
-import { Fragment } from 'react';
-import HeaderLink from './HeaderLink.astro';
+import {Fragment} from "react";
+import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header class="flex justify-between items-center px-4 py-1 bg-white shadow-sm">
-    <div class="flex items-center">
-        <!-- Avatar Image -->
-        <img src="/img/avatar_aman.png" alt="Avatar" class="rounded-full border border-gray-200 shadow-sm h-16 w-16"/>
-    </div>
-    <nav class="flex">
-        <!-- Navigation Links -->
-        <HeaderLink href="/" >About</HeaderLink>
-        <HeaderLink href="/blog" >Blog</HeaderLink>
-    </nav>
+  <div class="flex items-center">
+    <!-- Avatar Image -->
+    <img src="/img/avatar_aman.png" alt="Avatar" class="rounded-full border border-gray-200 shadow-sm h-16 w-16" />
+  </div>
+  <nav class="flex">
+    <!-- Navigation Links -->
+    <HeaderLink href="/">About</HeaderLink>
+    <HeaderLink href="/blog">Blog</HeaderLink>
+  </nav>
 </header>
