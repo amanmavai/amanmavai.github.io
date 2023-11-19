@@ -20,7 +20,7 @@ const posts = (await getCollection("blog")).sort((a, b) => a.data.pubDate.valueO
         <div class="mb-12">
           <h2 class="text-lg sm:text-3xl font-bold">Welcome to Aman's blog</h2>
         </div>
-        <p class="font-bold sm:text-3xl sm:leading-normal text-lg leading-loose">
+        <p class="font-bold sm:text-3xl sm:leading-normal text-lg leading-loose mb-8">
           Aman is a <span id="frontend-engineer">Frontend Engineer</span>
            presently
           <span id="bookstore"
@@ -42,7 +42,7 @@ const posts = (await getCollection("blog")).sort((a, b) => a.data.pubDate.valueO
     <ChevronDown client:load />
 
     <!-- Dummy Height Element -->
-    <div class="h-24"></div>
+    <div class="h-20"></div>
 
     <div class="text-center w-full">
       <h2 class="text-3xl sm:text-5xl font-bold">Blog</h2>
