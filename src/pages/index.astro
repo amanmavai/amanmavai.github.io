@@ -1,10 +1,147 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <!doctype html>
-<Layout title='Home' description='Home page'>
-	<div>
-		Home Page
-	</div>
+<Layout title="Home" description="Home page">
+  <div class="container max-w-5xl mx-auto px-6 font-nunito">
+    <div class="h-full text-center flex items-center hero">
+      <div>
+        <div class="flex w-full justify-center items-center">
+          <h1 class="text-4xl sm:text-7xl font-black mb-1 sm:mb-3">
+            Venture into Vibrance! <span class="wave">🚴‍♀️</span>
+          </h1>
+        </div>
+        <div class="mb-12">
+          <h2 class="text-lg sm:text-3xl font-bold">Welcome to Aman's blog</h2>
+        </div>
+        <p class="font-bold sm:text-3xl sm:leading-normal text-lg leading-loose">
+          Aman is a <span id="frontend-engineer">Frontend Engineer</span>
+           presently
+          <span id="bookstore"
+            >engaged in
+            <a href="https://amanmavai.github.io" class="text-blue-600" target="_blank" rel="noreferrer noopener"
+              >Online Bookstore Book Haven.</a
+            >
+          </span>
+           &nbsp; He loves
+          <span id="awesome-stuff">creating awesome stuff</span> and
+          <span id="writing">writing</span> things he learns along the way, usually about
+          <span id="tech-stack">JavaScript, React, and Remix</span>. Apart from his unconditional love for technology he
+          enjoys reading
+          <span id="marvel">Amazing Books</span> and playing
+          <span id="games">Badminton</span>.
+        </p>
+      </div>
+    </div>
+    <div class="h-32 w-full justify-center items-end" x-data="chevronDown()">
+      <svg
+        x-cloak
+        role="button"
+        x-on:click="handleClick"
+        x-show="isVisible"
+        xmlns="http://www.w3.org/2000/svg"
+        width="64"
+        height="64"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-chevron-down self-end m-auto animate-bounce sm:h-16 sm:w-16 h-8 w-8 mt-5 sm:mt-0"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </div>
 </Layout>
+
+<script>
+  import {annotate} from "rough-notation";
+
+  let vh = window.innerHeight * 0.01;
+  // Then we set the value in the --vh custom property to the root of the document
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+  const engineer = document.querySelector<HTMLElement>("#frontend-engineer")!;
+  const bookstore = document.querySelector<HTMLElement>("#bookstore")!;
+  const stuff = document.querySelector<HTMLElement>("#awesome-stuff")!;
+  const writing = document.querySelector<HTMLElement>("#writing")!;
+  const stack = document.querySelector<HTMLElement>("#tech-stack")!;
+
+  const a1 = annotate(engineer, {
+    type: "highlight",
+    color: "#A2E8FA",
+    multiline: true,
+  });
+  const a2 = annotate(bookstore, {
+    type: "highlight",
+    color: "#E2CBEF",
+    multiline: true,
+  });
+  const a3 = annotate(stuff, {
+    type: "highlight",
+    color: "#7DF0DF",
+    multiline: true,
+  });
+  const a4 = annotate(writing, {
+    type: "circle",
+    color: "#FAC791",
+  });
+  const a5 = annotate(stack, {
+    type: "underline",
+    color: "#E0908B",
+    multiline: true,
+  });
+
+  const timings = [
+    {annotation: a1, time: 500},
+    {annotation: a2, time: 500},
+    {annotation: a3, time: 800},
+    {annotation: a4, time: 1000},
+    {annotation: a5, time: 500},
+  ];
+
+  let currentTime = 0;
+
+  timings.forEach((item) => {
+    currentTime += item.time;
+    setTimeout(() => {
+      item.annotation.show();
+    }, currentTime);
+  });
+
+  function hideAndShowAnnotationsWithoutAnimation() {
+    timings.forEach((item) => {
+      item.annotation.hide();
+      item.annotation.animate = false;
+    });
+
+    setTimeout(() => {
+      timings.forEach((item) => {
+        item.annotation.show();
+      });
+    }, 800);
+  }
+
+  window.adjustAnnotations = hideAndShowAnnotationsWithoutAnimation;
+
+  function chevronDown() {
+    return {
+      isVisible: false,
+      init() {
+        setTimeout(() => {
+          this.isVisible = true;
+        }, 8000);
+      },
+      handleClick() {
+        window.scrollTo({
+          top: window.innerHeight,
+          left: 0,
+          behavior: "smooth",
+        });
+      },
+    };
+  }
+</script>
