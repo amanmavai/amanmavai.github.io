@@ -1,7 +1,7 @@
 ---
 import {getCollection} from "astro:content";
-import FormattedDate from "../../components/FormattedDate.tsx";
 import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/BlogCard.tsx";
 
 const posts = (await getCollection("blog")).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
@@ -11,21 +11,6 @@ const posts = (await getCollection("blog")).sort((a, b) => a.data.pubDate.valueO
     <div class="md:col-span-2">
       <h2 class="font-nunito text-4xl text-center font-semibold text-blue-500">Aman's Blog</h2>
     </div>
-    {
-      posts.map((post) => (
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <div class="p-6">
-            <h3 class="font-bold text-2xl sm:text-3xl text-gray-900 mb-2">{post.data.title}</h3>
-            <p class="mb-3">
-              <FormattedDate date={post.data.pubDate} />
-            </p>
-            <p class="text-base sm:text-lg text-gray-500 mb-2">{post.data.description}</p>
-            <a href={`/blog/${post.slug}/`} class="text-blue-500 hover:text-blue-700 transition duration-300">
-              Read More →
-            </a>
-          </div>
-        </div>
-      ))
-    }
+    {posts.map((post) => <BlogCard post={post} />)}
   </div>
 </Layout>
