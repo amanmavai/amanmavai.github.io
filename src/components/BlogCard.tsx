@@ -10,6 +10,7 @@ export default function BlogCard({post}) {
             <FormattedDate date={post.data.pubDate} />
           </p>
         </div>
+        <div className="text-base sm:text-lg text-gray-500 mb-2">{post.data.description}</div>
         <a
           href={`/blog/${post.slug}/`}
           className="text-blue-500 hover:text-blue-700 transition-colors duration-200 mt-4 self-start"
