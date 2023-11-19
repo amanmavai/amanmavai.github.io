@@ -1,4 +1,5 @@
 ---
+import ChevronDown from "../components/ChevronDown.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -9,7 +10,7 @@ import Layout from "../layouts/Layout.astro";
       <div>
         <div class="flex w-full justify-center items-center">
           <h1 class="text-4xl sm:text-7xl font-black mb-1 sm:mb-3">
-            Venture into Vibrance! <span class="wave">🚴‍♀️</span>
+            Venture into Vibrance! <span class="wave">🚴‍♂️</span>
           </h1>
         </div>
         <div class="mb-12">
@@ -34,26 +35,7 @@ import Layout from "../layouts/Layout.astro";
         </p>
       </div>
     </div>
-    <div class="h-32 w-full justify-center items-end" x-data="chevronDown()">
-      <svg
-        x-cloak
-        role="button"
-        x-on:click="handleClick"
-        x-show="isVisible"
-        xmlns="http://www.w3.org/2000/svg"
-        width="64"
-        height="64"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-chevron-down self-end m-auto animate-bounce sm:h-16 sm:w-16 h-8 w-8 mt-5 sm:mt-0"
-      >
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </div>
+    <ChevronDown client:load />
   </div>
 </Layout>
 
@@ -126,22 +108,4 @@ import Layout from "../layouts/Layout.astro";
   }
 
   window.adjustAnnotations = hideAndShowAnnotationsWithoutAnimation;
-
-  function chevronDown() {
-    return {
-      isVisible: false,
-      init() {
-        setTimeout(() => {
-          this.isVisible = true;
-        }, 8000);
-      },
-      handleClick() {
-        window.scrollTo({
-          top: window.innerHeight,
-          left: 0,
-          behavior: "smooth",
-        });
-      },
-    };
-  }
 </script>
