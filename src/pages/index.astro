@@ -4,7 +4,7 @@ import ChevronDown from "../components/ChevronDown.tsx";
 import Layout from "../layouts/Layout.astro";
 import BlogCard from "../components/BlogCard.tsx";
 
-const posts = (await getCollection("blog")).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
