@@ -3,9 +3,8 @@ import React, {useState} from "react";
 const ChevronDown = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Simulating the Alpine.js functionality
   React.useEffect(() => {
-    setTimeout(() => setIsVisible(true), 4000); // Show after 8 seconds
+    setTimeout(() => setIsVisible(true), 4000); // Show after 4 seconds
   }, []);
 
   const handleClick = () => {
