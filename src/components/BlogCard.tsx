@@ -1,6 +1,16 @@
 import FormattedDate from "./FormattedDate.tsx";
+type BlogCardProps = {
+  post: {
+    slug: string;
+    data: {
+      title: string;
+      description: string;
+      pubDate: Date;
+    };
+  };
+};
 
-export default function BlogCard({post}) {
+export default function BlogCard({post}: BlogCardProps) {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="p-8 flex flex-col justify-between h-full">
