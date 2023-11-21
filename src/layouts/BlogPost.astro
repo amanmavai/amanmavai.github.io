@@ -17,25 +17,26 @@ const {title, description, pubDate, updatedDate} = Astro.props;
 
   <body class="flex min-h-full flex-col">
     <Header />
-    <main class="flex-1 w-full py-12 px-6">
+    <main class="flex-1 w-full py-12 px-4 md:px-6">
       {/* <!-- Main content --> */}
       <article class="prose lg:prose-xl max-w-5xl container mx-auto shadow-lg rounded-lg overflow-hidden">
-        <div class="bg-gray-800 p-6 text-white">
-          <div class="flex flex-col items-end gap-4">
-            <div class="text-4xl font-bold text-white">{title}</div>
+        <div class="bg-gradient-to-r from-cyan-600 to-cyan-800 p-8 text-white">
+          <div class="flex flex-col items-center gap-6">
+            <div class="text-6xl font-bold text-white leading-tight text-center">{title}</div>
             <div class="text-sm">
-              <FormattedDate date={pubDate} className="text-white" />
+              <span class="text-base">Published on <FormattedDate date={pubDate} className="text-white" /></span>
               {
                 updatedDate && (
-                  <span class="ml-2 text-base">
-                    Last updated on <FormattedDate date={updatedDate} />
+                  <span class="text-base">
+                    Last updated on <FormattedDate date={updatedDate} className="text-white" />
                   </span>
                 )
               }
             </div>
           </div>
-          <hr class="my-4 border-gray-600" />
+          <hr class="my-4 border-blue-500" />
         </div>
+
         <div class="content p-6 bg-white">
           <slot />
         </div>
